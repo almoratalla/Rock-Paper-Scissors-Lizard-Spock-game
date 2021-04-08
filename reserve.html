@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet"> -->
+  <link rel="stylesheet" href="style.css">
+   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+   <style>
+    .attribution { font-size: 11px; text-align: center; position: absolute; bottom: 1em; margin: 0 auto; left: 0; right:0; }
+    /* .attribution a { color: hsl(228, 45%, 44%); } */
+    .attribution a { color: white; }
+  </style>
+  <script src="./script.js" defer></script>
+  <title>Frontend Mentor | Rock, Paper, Scissors</title>
+</head>
+<body>
+  <header>
+    <img src="./images/logo.svg" alt="">
+    <div class="score">
+      <h4>SCORE</h4>
+      <p id="score">0</p>
+    </div>
+  </header>
+  <main>
+    <div class="first">
+      c
+    </div>
+    <div class="main">
+      <div class="controls">
+        <button data-option="paper-option" class="paper-option paper__option__main">
+          <span data-option="paper-option">
+            <img data-option="paper-option" src="./images/icon-paper.svg" alt="Paper">
+          </span>
+        </button>
+        <button data-option="scissors-option" class="scissors-option scissors__option__main">
+          <span data-option="scissors-option">
+            <img data-option="scissors-option" src="./images/icon-scissors.svg" alt="Scissors">
+          </span>
+        </button>
+        <button data-option="rock-option" class="rock-option rock__option__main">
+          <span data-option="rock-option">
+            <img data-option="rock-option" class="rock-image" src="./images/icon-rock.svg" alt="Rock">
+          </span>
+        </button>
+      </div>
+
+      <section class="picking-section">
+        <div class="user-option">
+          <h3>YOU PICKED</h3>
+          <button class="paper-option picking-option">
+            <span>
+              <img src="./images/icon-paper.svg" alt="Paper">
+            </span>
+          </button>
+        </div>
+        <div class="computer-option">
+          <h3>THE HOUSE PICKED</h3>
+          <button class="rock-option picking-option " >
+            <span >
+              <img class="rock-image" src="./images/icon-rock.svg" alt="Rock">
+            </span>
+          </button> 
+        </div>
+      </section>
+
+      <section class="results-section">
+        <div class="user-option">
+          <h3>YOU PICKED</h3>
+          <button class="paper-option picking-option">
+            <span>
+              <img src="./images/icon-paper.svg" alt="Paper">
+            </span>
+          </button>
+        </div>
+        <div class="results-pane">
+          <h2 class="result-banner">YOU WIN</h2>
+           <button id="reset">PLAY AGAIN</button>
+        </div>
+        <div class="user-option">
+          <h3>THE HOUSE PICKED</h3>
+          <button class="rock-option picking-option " >
+            <span >
+              <img class="rock-image" src="./images/icon-rock.svg" alt="Rock">
+            </span>
+          </button> 
+        </div>
+      </section>
+    </div>
+    
+
+    <nav class="rules">
+      <button>RULES</button>
+    </nav>
+  </main>
+  
+  <!-- <div class="attribution" style="color: white; letter-spacing: 0.1em;">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Alain Moratalla</a>.
+  </div> -->
+  <script>
+    setInterval(() => {
+      document.querySelector('#score').textContent = parseInt(document.querySelector('#score').textContent) + 1;
+    }, 1000)
+  </script>
+</body>
+</html>
