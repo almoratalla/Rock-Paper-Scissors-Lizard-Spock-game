@@ -287,7 +287,9 @@ main {
             justify-content: space-between;
             width: inherit;
             height: 373px;
-            margin-bottom: 3.1875em;
+            margin-bottom: 3em;
+            padding-top: unset !important;
+            padding-bottom: unset !important;
 
             h3 {
                 color: white;
@@ -329,6 +331,17 @@ main {
 
             }
 
+            @keyframes bounce-1 {
+                0%   { transform: translateY(0px); }
+                10%  { transform: translateY(-2.125em); }
+                20%  { transform: translateY(0px); }
+                43%  { transform: translateY(-2.125em); }
+                53%  { transform: translateY(0px); }
+                75%  { transform: translateY(-2.125em); }
+                85%  { transform: translateY(0px); }
+                100% { transform: translateY(0); }
+            }
+
             .picking-option {
                 box-shadow: inset 0 -0.3rem rgba(0, 0, 0, 0.2);
 
@@ -343,6 +356,32 @@ main {
                     img.rock-image {
                         height: 2.2rem;
                         width: auto;
+                    }
+                }
+            }
+
+            .user-picking {
+                animation-name: bounce-1;
+                animation-timing-function: linear;
+                animation-duration: 1.75s;
+                animation-iteration-count: 1;
+            }
+
+            .picking {
+                box-shadow: none;
+                background: transparent;
+                
+                span {
+                    width: 8.1875rem; //131
+                    height: 8.4375rem; //135
+                    border-radius: 50%;
+                    justify-content: center;
+                    align-items: center;
+                    background: hsl(237, 49%, 15%);
+                    box-shadow: none;
+
+                    img {
+                        visibility: hidden;
                     }
                 }
             }
@@ -566,7 +605,7 @@ main {
             }
     
             section.picking-section {
-                display: none;
+                display: flex;
                 flex-flow: row nowrap;
                 justify-content: space-between;
                 padding: 1em 8.625em;
@@ -626,6 +665,7 @@ main {
     
                     h3 {
                         margin: 0 auto;
+                        order: unset;
                     }
                 }
     
@@ -638,23 +678,29 @@ main {
     
                     h3 {
                         margin: 0 auto;
+                        order: unset;
                     }
                 }
                 
             }
     
             section.results-section {
-                display: none;
+                display: flex;
                 flex-flow: row nowrap;
                 justify-content: space-between;
-                padding: 1em 0;
+                padding: 1em 8.625em;
+                padding-top: 1em !important;
+                padding-bottom: 1em !important;
+                transition: padding 500ms ease-out 500ms;
+                width: unset;
+                height: unset;
+                margin-bottom: unset;
     
                 h3 {
                     color: white;
                     font-size: 2em;
+                    order: unset;
                 } 
-    
-                
     
                 .results-pane {
                     display: flex;
@@ -687,12 +733,23 @@ main {
                     }
     
                 }
+
+                @keyframes bounce-1 {
+                    0%   { transform: translateY(0px); }
+                    10%  { transform: translateY(-3.125rem); }
+                    20%  { transform: translateY(0px); }
+                    38%  { transform: translateY(-3.125rem); }
+                    48%  { transform: translateY(0px); }
+                    75%  { transform: translateY(-3.125rem); }
+                    85%  { transform: translateY(0px); }
+                    100% { transform: translateY(0); }
+                }
     
                 .picking-option {
                     width: 18.375rem;//294px
                     height: 18.875rem;//302px
                     box-shadow: inset 0 -0.7rem rgba(0, 0, 0, 0.2);
-    
+
                     span {
                         height: 14.0625rem; // 225px
                         width: 14.4375rem; //231px
@@ -708,6 +765,32 @@ main {
                             width: auto;
                         }
                     }
+                }
+
+                .picking {
+                    box-shadow: none;
+                    background: transparent;
+
+                    span {
+                        height: 14.0625rem; // 225px
+                        width: 14.4375rem; //231px
+                        border-radius: 50%;
+                        justify-content: center;
+                        align-items: center;
+                        background: hsl(237, 49%, 15%);
+                        box-shadow: none;
+    
+                        img {
+                            visibility: hidden;
+                        }
+                    }
+                }
+
+                .user-picking {
+                    animation-name: bounce-1;
+                    animation-timing-function: linear;
+                    animation-duration: 1.75s;
+                    animation-iteration-count: 1;
                 }
     
                 .user-option {
@@ -728,7 +811,8 @@ main {
                     justify-content: space-between;
                     align-items: center;
                     height: 24.1875em; // 387
-    
+                    
+
                     h3 {
                         margin: 0 auto;
                     }

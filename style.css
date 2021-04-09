@@ -361,7 +361,9 @@ main div.main section.results-section {
           justify-content: space-between;
   width: inherit;
   height: 373px;
-  margin-bottom: 3.1875em;
+  margin-bottom: 3em;
+  padding-top: unset !important;
+  padding-bottom: unset !important;
 }
 
 main div.main section.results-section h3 {
@@ -414,6 +416,76 @@ main div.main section.results-section .results-pane button {
   letter-spacing: 0.2em;
 }
 
+@-webkit-keyframes bounce-1 {
+  0% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  10% {
+    -webkit-transform: translateY(-2.125em);
+            transform: translateY(-2.125em);
+  }
+  20% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  43% {
+    -webkit-transform: translateY(-2.125em);
+            transform: translateY(-2.125em);
+  }
+  53% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  75% {
+    -webkit-transform: translateY(-2.125em);
+            transform: translateY(-2.125em);
+  }
+  85% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes bounce-1 {
+  0% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  10% {
+    -webkit-transform: translateY(-2.125em);
+            transform: translateY(-2.125em);
+  }
+  20% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  43% {
+    -webkit-transform: translateY(-2.125em);
+            transform: translateY(-2.125em);
+  }
+  53% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  75% {
+    -webkit-transform: translateY(-2.125em);
+            transform: translateY(-2.125em);
+  }
+  85% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
 main div.main section.results-section .picking-option {
   -webkit-box-shadow: inset 0 -0.3rem rgba(0, 0, 0, 0.2);
           box-shadow: inset 0 -0.3rem rgba(0, 0, 0, 0.2);
@@ -432,6 +504,42 @@ main div.main section.results-section .picking-option span img {
 main div.main section.results-section .picking-option span img.rock-image {
   height: 2.2rem;
   width: auto;
+}
+
+main div.main section.results-section .user-picking {
+  -webkit-animation-name: bounce-1;
+          animation-name: bounce-1;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-duration: 1.75s;
+          animation-duration: 1.75s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+}
+
+main div.main section.results-section .picking {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background: transparent;
+}
+
+main div.main section.results-section .picking span {
+  width: 8.1875rem;
+  height: 8.4375rem;
+  border-radius: 50%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #141539;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+main div.main section.results-section .picking span img {
+  visibility: hidden;
 }
 
 main div.main section.results-section .user-option {
@@ -683,7 +791,9 @@ main div.main section.results-section .computer-option h3 {
     z-index: -1;
   }
   main div.main section.picking-section {
-    display: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-flow: row nowrap;
@@ -757,6 +867,9 @@ main div.main section.results-section .computer-option h3 {
   }
   main div.main section.picking-section .user-option h3 {
     margin: 0 auto;
+    -webkit-box-ordinal-group: unset;
+        -ms-flex-order: unset;
+            order: unset;
   }
   main div.main section.picking-section .computer-option {
     display: -webkit-box;
@@ -776,9 +889,14 @@ main div.main section.results-section .computer-option h3 {
   }
   main div.main section.picking-section .computer-option h3 {
     margin: 0 auto;
+    -webkit-box-ordinal-group: unset;
+        -ms-flex-order: unset;
+            order: unset;
   }
   main div.main section.results-section {
-    display: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-flow: row nowrap;
@@ -786,11 +904,21 @@ main div.main section.results-section .computer-option h3 {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    padding: 1em 0;
+    padding: 1em 8.625em;
+    padding-top: 1em !important;
+    padding-bottom: 1em !important;
+    -webkit-transition: padding 500ms ease-out 500ms;
+    transition: padding 500ms ease-out 500ms;
+    width: unset;
+    height: unset;
+    margin-bottom: unset;
   }
   main div.main section.results-section h3 {
     color: white;
     font-size: 2em;
+    -webkit-box-ordinal-group: unset;
+        -ms-flex-order: unset;
+            order: unset;
   }
   main div.main section.results-section .results-pane {
     display: -webkit-box;
@@ -831,6 +959,74 @@ main div.main section.results-section .computer-option h3 {
     font-weight: 700;
     letter-spacing: 0.2em;
   }
+  @-webkit-keyframes bounce-1 {
+    0% {
+      -webkit-transform: translateY(0px);
+              transform: translateY(0px);
+    }
+    10% {
+      -webkit-transform: translateY(-3.125rem);
+              transform: translateY(-3.125rem);
+    }
+    20% {
+      -webkit-transform: translateY(0px);
+              transform: translateY(0px);
+    }
+    38% {
+      -webkit-transform: translateY(-3.125rem);
+              transform: translateY(-3.125rem);
+    }
+    48% {
+      -webkit-transform: translateY(0px);
+              transform: translateY(0px);
+    }
+    75% {
+      -webkit-transform: translateY(-3.125rem);
+              transform: translateY(-3.125rem);
+    }
+    85% {
+      -webkit-transform: translateY(0px);
+              transform: translateY(0px);
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+  }
+  @keyframes bounce-1 {
+    0% {
+      -webkit-transform: translateY(0px);
+              transform: translateY(0px);
+    }
+    10% {
+      -webkit-transform: translateY(-3.125rem);
+              transform: translateY(-3.125rem);
+    }
+    20% {
+      -webkit-transform: translateY(0px);
+              transform: translateY(0px);
+    }
+    38% {
+      -webkit-transform: translateY(-3.125rem);
+              transform: translateY(-3.125rem);
+    }
+    48% {
+      -webkit-transform: translateY(0px);
+              transform: translateY(0px);
+    }
+    75% {
+      -webkit-transform: translateY(-3.125rem);
+              transform: translateY(-3.125rem);
+    }
+    85% {
+      -webkit-transform: translateY(0px);
+              transform: translateY(0px);
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+  }
   main div.main section.results-section .picking-option {
     width: 18.375rem;
     height: 18.875rem;
@@ -850,6 +1046,38 @@ main div.main section.results-section .computer-option h3 {
   main div.main section.results-section .picking-option span img.rock-image {
     height: 4rem;
     width: auto;
+  }
+  main div.main section.results-section .picking {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    background: transparent;
+  }
+  main div.main section.results-section .picking span {
+    height: 14.0625rem;
+    width: 14.4375rem;
+    border-radius: 50%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background: #141539;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  main div.main section.results-section .picking span img {
+    visibility: hidden;
+  }
+  main div.main section.results-section .user-picking {
+    -webkit-animation-name: bounce-1;
+            animation-name: bounce-1;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+    -webkit-animation-duration: 1.75s;
+            animation-duration: 1.75s;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
   }
   main div.main section.results-section .user-option {
     display: -webkit-box;
