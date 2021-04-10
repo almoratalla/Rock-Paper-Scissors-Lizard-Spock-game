@@ -2,6 +2,7 @@ function init(){
     document.querySelectorAll('div.main>.controls button').forEach(controlButton => {
         controlButton.addEventListener('click', startGame.bind(this))
     })
+    
     updateScore()
 }
 
@@ -186,4 +187,44 @@ function resetGame() {
     rockOptionSpan.prepend(rockOptionImage);
 
     init();
+}
+
+function toggleModal(e){
+    if(e.target.className === 'close'){
+        let body = document.querySelector('body')
+        let pageWrap = document.createElement('div');
+        pageWrap.classList = "page-wrap";
+        let modalDiv = document.createElement('div');
+        modalDiv.classList = "rules3__modal"
+        let rulesHeadings3 = document.createElement('h3');
+        rulesHeadings3.textContent = "RULES"
+        let closeButton = document.createElement('button');
+        let closeButtonImage = document.createElement('img');
+        closeButtonImage.classList ="close__modal";
+        closeButtonImage.src ="./images/icon-close.svg";
+        closeButtonImage.alt ="Close button to close the rules";
+        let rpsRulesImage = document.createElement('img');
+        rpsRulesImage.classList ="img__rules";
+        rpsRulesImage.src ="./images/image-rules.svg";
+        rpsRulesImage.alt="Here are the rules: Paper beats rock, Rock beats scissors, Scissors beat paper"
+
+        modalDiv.append(rulesHeadings3);
+        modalDiv.append(closeButton);
+        closeButton.append(closeButtonImage);
+        modalDiv.append(rpsRulesImage);
+        body.appendChild(pageWrap);
+        body.appendChild(modalDiv);
+
+        closeButton.addEventListener('click', closeModal);
+        pageWrap.addEventListener('click', closeModal);
+        closeButton = null;
+        pageWrap = null;
+    }
+}
+
+document.querySelector('nav.rules>button').addEventListener('click', toggleModal.bind(this));
+
+function closeModal(e){
+    document.querySelector('.page-wrap').remove();
+    document.querySelector('.rules3__modal').remove();
 }

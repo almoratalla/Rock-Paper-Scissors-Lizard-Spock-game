@@ -10,6 +10,7 @@ $rock-gradient: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
 html {
     box-sizing: border-box;
     font-size: 100%;
+    height: 100%;
 }
 
 *, *::before, *::after{
@@ -20,58 +21,64 @@ body {
     margin: 0;
     padding: 0;
     max-height: 100%;
+    height: inherit;
     font-family: 'Barlow Semi Condensed', sans-serif;
     background: radial-gradient($bg-fromblue, $bg-toblue);
 }
 
 header {
-    margin: 1.875em auto;
-    padding: 0.625em; // 10px
-    outline: $neutrals-hdroutline;
-    border: 3px solid $neutrals-hdroutline;
-    border-radius: 0.8em;
-    height: 6.1875rem; // 99px
-    width: 19.5625rem; //313px est width
-
     display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
 
-    img {
-        margin: auto 0.625em; 
-        height: 3em;
-        
-    }
+    .head__header {
+        margin: 1.875em auto;
+        padding: 0.625em; // 10px
+        outline: $neutrals-hdroutline;
+        border: 3px solid $neutrals-hdroutline;
+        border-radius: 0.8em;
+        height: 6.1875rem; // 99px
+        width: 19.5625rem; //313px est width
 
-    .score {
-        width: 5em;
-        height: 4.5em;
-        background: white;
-        border: none;
-        border-radius: 5px;
-        
         display: flex;
-        flex-flow: column nowrap;
-        align-items: center;
-        padding: 1em;
+        flex-flow: row nowrap;
+        justify-content: space-between;
 
-        h4 {
-            color:$neutrals-scrtext;
-            // letter-spacing: 0.1em;
-            margin: 0;
-            font-weight: 600;
-            font-size: 0.7rem;
-
+        img {
+            margin: auto 0.625em; 
+            height: 3em;
+            
         }
 
-        p {
-            font-weight: 700;
-            font-size: 2rem;
-            margin: 0;
-            color: $neutrals-drktext;
-            line-height: 1;
+        .score {
+            width: 5em;
+            height: 4.5em;
+            background: white;
+            border: none;
+            border-radius: 5px;
+            
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            padding: 1em;
+
+            h4 {
+                color:$neutrals-scrtext;
+                // letter-spacing: 0.1em;
+                margin: 0;
+                font-weight: 600;
+                font-size: 0.7rem;
+
+            }
+
+            p {
+                font-weight: 700;
+                font-size: 2rem;
+                margin: 0;
+                color: $neutrals-drktext;
+                line-height: 1;
+            }
         }
     }
+    
 }
 
 main {
@@ -413,64 +420,132 @@ main {
     }  
 }
 
+.page-wrap {
+    height: 100%;
+    width: 100%;
+    background: white;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.rules3__modal {
+    height: 100%;
+    width: 100%;
+    background: white;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding: 1.4375em;
+    justify-content: space-between;
+    z-index: 5;
+    text-align: center;
+
+    button {
+        outline: none;
+        margin: 0;
+        margin-bottom: 4em;
+        background: none;
+        height: fit-content;
+        padding: 0;
+        border: none;
+        order: 2;
+    }
+    button:active {
+        outline: none;
+    }
+
+    h3{
+        display: inline-block;
+        font-size: 2em;
+        margin-top: 2.75em;
+    }
+
+    .close__modal {
+        transform: scale(1);
+        width: auto;
+        height: 1.48em;
+    }
+
+    .img__rules {
+        margin: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+}
+
 // @For screens ~ 1366 x 768, 1280 x 720 or 1440 x 800
 // body above 1232px X 624px but not more than 1600px
 @media (min-width: 85em){
     body {
         padding: 0;
-        min-height: 100%;
+        // min-height: 100%;
         max-height: 100vh;
+        // 
+        height: 100%;
     }
 
     header {
-        margin: 2.875em auto;
-        padding: 1em 1.5em; // 1.2em 1.5em 1.2em and 2em left
-        outline: $neutrals-hdroutline;
-        border: 3px solid $neutrals-hdroutline;
-        border-radius: 0.8em;
-        height: 9.5625rem; // 153px est height
-        width: 43.875rem; //702px est width
-    
         display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-between;
-    
-        img {
-            margin: 0.6125em 0.6875em; // or 0.58em top/bottom
-            height: 6em;
-            
-        }
-    
-        .score {
-            //height 114 width 150
-            width: 9.375em;
-            height: 7.125em;
-            background: white;
-            border: none;
-            border-radius: 5px;
-            
+
+        .head__header{
+            margin: 2.875em auto;
+            padding: 1em 1.5em; // 1.2em 1.5em 1.2em and 2em left
+            outline: $neutrals-hdroutline;
+            border: 3px solid $neutrals-hdroutline;
+            border-radius: 0.8em;
+            height: 9.5625rem; // 153px est height
+            width: 43.875rem; //702px est width
+        
             display: flex;
-            flex-flow: column nowrap;
-            // justify-content: space-between;
-            align-items: center;
-            padding: 1em;
-    
-            h4 {
-                color:$neutrals-scrtext;
-                letter-spacing: 0.1rem;
-                margin: 0;
-                font-weight: 600;
-                font-size: revert;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+        
+            img {
+                margin: 0.6125em 0.6875em; // or 0.58em top/bottom
+                height: 6em;
+                
             }
-    
-            p {
-                font-weight: 700;
-                font-size: 4rem;
-                margin: 0;
-                color: $neutrals-drktext;
-                line-height: 1;
+        
+            .score {
+                //height 114 width 150
+                width: 9.375em;
+                height: 7.125em;
+                background: white;
+                border: none;
+                border-radius: 5px;
+                
+                display: flex;
+                flex-flow: column nowrap;
+                // justify-content: space-between;
+                align-items: center;
+                padding: 1em;
+        
+                h4 {
+                    color:$neutrals-scrtext;
+                    letter-spacing: 0.1rem;
+                    margin: 0;
+                    font-weight: 600;
+                    font-size: revert;
+                }
+        
+                p {
+                    font-weight: 700;
+                    font-size: 4rem;
+                    margin: 0;
+                    color: $neutrals-drktext;
+                    line-height: 1;
+                }
             }
         }
+        
     }
     
     main {
@@ -821,5 +896,65 @@ main {
             }
     
         }  
+    }
+
+    .page-wrap {
+        height: 100%;
+        width: 100%;
+        background: rgb(0, 0, 0);
+        opacity: 85%;
+        position: absolute;
+        top: 0;
+        // filter: blur(10px) grayscale(50%);
+    }
+
+    .rules3__modal {
+        // position: absolute;
+        display: flex;
+        width: 25em;
+        height: 25.9375em;
+        margin: auto;
+        padding: 2em;
+        background: white;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        z-index: 5;
+        position: absolute;
+        left:0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        text-align: center;
+
+        button {
+            outline: none;
+            margin: 0;
+            background: none;
+            height: fit-content;
+            padding: 0.5em;
+            border: none;
+            order: unset;
+        }
+        button:active {
+            outline: none;
+        }
+
+        h3{
+            display: inline;
+            font-size: 2em;
+            margin: 0;
+        }
+
+        .close__modal {
+            transform: scale(1);
+            width: auto;
+            height: 1.48em;
+        }
+
+        .img__rules {
+            margin: auto;
+            position: unset;
+            
+        }
     }
 }

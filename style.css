@@ -2,6 +2,7 @@ html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-size: 100%;
+  height: 100%;
 }
 
 *, *::before, *::after {
@@ -13,11 +14,18 @@ body {
   margin: 0;
   padding: 0;
   max-height: 100%;
+  height: inherit;
   font-family: 'Barlow Semi Condensed', sans-serif;
   background: radial-gradient(#1f3756, #141539);
 }
 
 header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header .head__header {
   margin: 1.875em auto;
   padding: 0.625em;
   outline: #606e85;
@@ -37,12 +45,12 @@ header {
           justify-content: space-between;
 }
 
-header img {
+header .head__header img {
   margin: auto 0.625em;
   height: 3em;
 }
 
-header .score {
+header .head__header .score {
   width: 5em;
   height: 4.5em;
   background: white;
@@ -61,14 +69,14 @@ header .score {
   padding: 1em;
 }
 
-header .score h4 {
+header .head__header .score h4 {
   color: #2a46c0;
   margin: 0;
   font-weight: 600;
   font-size: 0.7rem;
 }
 
-header .score p {
+header .head__header .score p {
   font-weight: 700;
   font-size: 2rem;
   margin: 0;
@@ -582,13 +590,99 @@ main div.main section.results-section .computer-option h3 {
   margin: 1.625em auto;
 }
 
+.page-wrap {
+  height: 100%;
+  width: 100%;
+  background: white;
+  position: absolute;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+.rules3__modal {
+  height: 100%;
+  width: 100%;
+  background: white;
+  position: absolute;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1.4375em;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  z-index: 5;
+  text-align: center;
+}
+
+.rules3__modal button {
+  outline: none;
+  margin: 0;
+  margin-bottom: 4em;
+  background: none;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 0;
+  border: none;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
+.rules3__modal button:active {
+  outline: none;
+}
+
+.rules3__modal h3 {
+  display: inline-block;
+  font-size: 2em;
+  margin-top: 2.75em;
+}
+
+.rules3__modal .close__modal {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  width: auto;
+  height: 1.48em;
+}
+
+.rules3__modal .img__rules {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
 @media (min-width: 85em) {
   body {
     padding: 0;
-    min-height: 100%;
     max-height: 100vh;
+    height: 100%;
   }
   header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  header .head__header {
     margin: 2.875em auto;
     padding: 1em 1.5em;
     outline: #606e85;
@@ -607,11 +701,11 @@ main div.main section.results-section .computer-option h3 {
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
-  header img {
+  header .head__header img {
     margin: 0.6125em 0.6875em;
     height: 6em;
   }
-  header .score {
+  header .head__header .score {
     width: 9.375em;
     height: 7.125em;
     background: white;
@@ -629,14 +723,14 @@ main div.main section.results-section .computer-option h3 {
             align-items: center;
     padding: 1em;
   }
-  header .score h4 {
+  header .head__header .score h4 {
     color: #2a46c0;
     letter-spacing: 0.1rem;
     margin: 0;
     font-weight: 600;
     font-size: revert;
   }
-  header .score p {
+  header .head__header .score p {
     font-weight: 700;
     font-size: 4rem;
     margin: 0;
@@ -1116,6 +1210,69 @@ main div.main section.results-section .computer-option h3 {
   }
   main div.main section.results-section .computer-option h3 {
     margin: 0 auto;
+  }
+  .page-wrap {
+    height: 100%;
+    width: 100%;
+    background: black;
+    opacity: 85%;
+    position: absolute;
+    top: 0;
+  }
+  .rules3__modal {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 25em;
+    height: 25.9375em;
+    margin: auto;
+    padding: 2em;
+    background: white;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    z-index: 5;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+  }
+  .rules3__modal button {
+    outline: none;
+    margin: 0;
+    background: none;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    padding: 0.5em;
+    border: none;
+    -webkit-box-ordinal-group: unset;
+        -ms-flex-order: unset;
+            order: unset;
+  }
+  .rules3__modal button:active {
+    outline: none;
+  }
+  .rules3__modal h3 {
+    display: inline;
+    font-size: 2em;
+    margin: 0;
+  }
+  .rules3__modal .close__modal {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    width: auto;
+    height: 1.48em;
+  }
+  .rules3__modal .img__rules {
+    margin: auto;
+    position: unset;
   }
 }
 /*# sourceMappingURL=style.css.map */
