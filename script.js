@@ -322,12 +322,8 @@ function updateScore(op, m, r,prev, curr){
         } else {
             console.log('triggered no operation hard')
             prev = window.localStorage.getItem('rps-hard-score');
-            console.log(prev, prev.split(","))
-            let [ yourScore, aiScore ] = prev.split(",")
-            console.log(yourScore, aiScore)
-            console.log(typeof yourScore)
-            document.querySelector('#score').textContent = prev ? yourScore: '0';
-            document.querySelector('#ai-score').textContent = aiScore;
+            document.querySelector('#score').textContent = prev ? prev.split(",")[0]: '0';
+            document.querySelector('#ai-score').textContent = prev ? prev.split(",")[1]: '0';
             console.log(document.querySelector('#ai-score'))
         }
         
