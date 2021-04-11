@@ -48,6 +48,13 @@ header {
             
         }
 
+        .score-head {
+            width: fit-content;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+        }
+
         .score {
             width: 5em;
             height: 4.5em;
@@ -58,17 +65,49 @@ header {
             display: flex;
             flex-flow: column nowrap;
             align-items: center;
-            padding: 1em;
+            padding: 0.7em;
 
             h4 {
                 color:$neutrals-scrtext;
                 // letter-spacing: 0.1em;
                 margin: 0;
                 font-weight: 600;
-                font-size: 0.7rem;
+                font-size: 0.6rem;
 
             }
 
+            p {
+                font-weight: 700;
+                font-size: 2rem;
+                margin: 0;
+                color: $neutrals-drktext;
+                line-height: 1;
+            }
+        }
+
+        .ai-score {
+            //height 114 width 150
+            margin-left: 0.5em;
+            width: 5em;
+            height: 4.5em;
+            background: white;
+            border: none;
+            border-radius: 5px;
+            
+            display: flex;
+            flex-flow: column nowrap;
+            // justify-content: space-between;
+            align-items: center;
+            padding: 0.7em;
+    
+            span {
+                color: red;
+                letter-spacing: 0.1rem;
+                margin: 0;
+                font-weight: 600;
+                font-size: 0.6rem;
+            }
+    
             p {
                 font-weight: 700;
                 font-size: 2rem;
@@ -99,11 +138,11 @@ main {
         width: inherit;
         // height: 475px;
         display: flex;
-        flex-flow: column wrap;
+        flex-flow: column-reverse wrap;
         padding: 0 2em;
         
 
-        button {
+        button.nav__rulesbtn {
             // 130x42
             width: 8.125rem;
             height: 2.625rem;
@@ -116,7 +155,30 @@ main {
             padding: 0.25em 1.5625em;
             border-radius: 10px;
             letter-spacing: 0.15em;
-            margin: 0 auto;
+            margin: 0 auto 1em;
+        }
+
+        button.nav__mode {
+            // 130x42
+            width: 8.125rem;
+            height: 2.625rem;
+            // align-self: flex-end;
+            border: 2px solid #fff;
+            background: transparent;
+            color: #fff;
+            font-size: 1em;
+            text-transform: uppercase;
+            font-family: inherit;
+            padding: 0.25em 1em;
+            border-radius: 10px;
+            letter-spacing: 0.15em;
+            margin: 1em auto;
+            text-align: center;
+            background-image: linear-gradient(to right, transparent 50%, white 50%);
+            background-size: 200% 100%;
+            line-height: 2em;
+            // transition: background 200ms ease-in-out;
+            transition: background-position 1s;
         }
     }
 
@@ -513,9 +575,47 @@ main {
                 height: 6em;
                 
             }
+
+            .score-head {
+                width: fit-content;
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: space-between;
+            }
         
             .score {
                 //height 114 width 150
+                width: 9.375em;
+                height: 7.125em;
+                background: white;
+                border: none;
+                border-radius: 5px;
+                
+                display: flex;
+                flex-flow: column nowrap;
+                align-items: center;
+                padding: 1em;
+        
+                h4 {
+                    color:$neutrals-scrtext;
+                    letter-spacing: 0.1rem;
+                    margin: 0;
+                    font-weight: 600;
+                    font-size: revert;
+                }
+        
+                p {
+                    font-weight: 700;
+                    font-size: 4rem;
+                    margin: 0;
+                    color: $neutrals-drktext;
+                    line-height: 1;
+                }
+            }
+
+            .ai-score {
+                //height 114 width 150
+                margin-left: 0.5em;
                 width: 9.375em;
                 height: 7.125em;
                 background: white;
@@ -528,8 +628,8 @@ main {
                 align-items: center;
                 padding: 1em;
         
-                h4 {
-                    color:$neutrals-scrtext;
+                span {
+                    color: red;
                     letter-spacing: 0.1rem;
                     margin: 0;
                     font-weight: 600;
@@ -569,7 +669,7 @@ main {
             padding: 0 2em;
             margin: unset;
     
-            button {
+            button.nav__rulesbtn {
                 // 130x42
                 width: 8.125rem;
                 height: 2.625rem;
@@ -585,6 +685,30 @@ main {
                 letter-spacing: 0.15em;
                 margin: unset;
             }
+
+            button.nav__mode {
+                // 130x42
+                width: 8.125rem;
+                height: 2.625rem;
+                align-self: flex-end;
+                border: 2px solid #fff;
+                background: transparent;
+                color: #fff;
+                font-size: 1em;
+                text-transform: uppercase;
+                font-family: inherit;
+                padding: 0.25em 1em;
+                border-radius: 10px;
+                letter-spacing: 0.15em;
+                margin: 1em 0;
+                text-align: center;
+                background-image: linear-gradient(to right, transparent 50%, white 50%);
+                background-size: 200% 100%;
+                line-height: 2em;
+                // transition: background 200ms ease-in-out;
+                transition: background-position 1s;
+            }
+
         }
     
         div.main {

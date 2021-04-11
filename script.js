@@ -1,49 +1,75 @@
+import aiAnswer from "./hardmode.js";
+let MODE = 'normal';
 function init(){
-    document.querySelectorAll('div.main>.controls button').forEach(controlButton => {
-        controlButton.addEventListener('click', startGame.bind(this))
-    })
-    
-    updateScore()
+    console.log(MODE);
+    createStartEvents();
+    updateScore(null, MODE)
 }
 
-init();
 
-function startGame(e) {
+function createStartEvents(){
+    document.querySelectorAll('div.main>.controls button').forEach((controlButton,idx )=> {
+        console.log('created event listener', idx)
+        controlButton.addEventListener('click', startGame.bind(this))
+    }) 
+}
+
+let USER_OPTION;
+
+async function startGame(e) {
+    console.log(`${MODE}, mode`, MODE)
+    let m = MODE;
+
+    document.querySelector('#mode-toggle').disabled = true;
 
     // Store the user choice in a variable
     const [ userOption ] = e.target.dataset.option.toString().split("-");
     USER_OPTION = userOption;
-
-    // Computer choose an action
     const opts = ['rock', 'paper', 'scissors']
-    const computerOption = opts[Math.floor(Math.random() * 2)]
+    let uOption;
+    if (userOption == 'rock') {
+        uOption = 1;
+    } else if (userOption == 'paper'){
+        uOption = 2;
+    } else {
+        uOption = 3;
+    }
+
+    let computerOption;
+
+    if(m === 'normal'){
+        // Computer choose an action
+        computerOption = opts[Math.floor(Math.random() * 2)]
+    } else {
+        // hard mode
+    
+        const cOption = await aiAnswer(uOption);
+        if (cOption == 1) {
+            computerOption = 'rock';
+        } else if (cOption == 2){
+            computerOption = 'paper';
+        } else {
+            computerOption = 'scissors';
+        }
+            
+    }
+
+    
 
     /// Proceed to picking and rendering result
     // proceed to picking
-    pickingResultsSection(userOption, computerOption)
+    pickingResultsSection(userOption, computerOption, m)
 
     // Restart the game
     
 }
 
-function updateScore(op, prev, curr){
-    prev = parseInt(document.querySelector('#score').textContent)
-    if(!op){
-        prev = window.localStorage.getItem('rps-score');
-        document.querySelector('#score').textContent = prev ? prev: '0';
-    }
 
-    if(op === 'add'){
-        document.querySelector('#score').textContent = parseInt(document.querySelector('#score').textContent) + 1;
-    }
-    curr = document.querySelector('#score').textContent
-    window.localStorage.setItem('rps-score', curr)
-    return { op, prev, curr }
-}
 
-function pickingResultsSection(u, c){
+function pickingResultsSection(u, c, m){
 
     // Render results section with picking
+    console.log(document.querySelector('.controls'))
     document.querySelector('.controls').remove();
 
     // render user choice
@@ -109,12 +135,14 @@ function pickingResultsSection(u, c){
         GAME_ERROR = new Error('Something went wrong with the game master');
     }
     let result = GAME_RESULT;
+    console.log(result)
 
     // render 
     
     const resultsPaneDiv = document.createElement('div');
     resultsPaneDiv.classList = "results-pane";
     const resultBannerHeadings2 = document.createElement('h2');
+    console.log(resultBannerHeadings2)
     resultBannerHeadings2.classList = "result-banner";
     resultBannerHeadings2.textContent = result.toString().toLowerCase().trim() !== "draw" ? `YOU ${result.toString().toUpperCase().trim()}`: "IT'S A TIE";
     const resetButton = document.createElement('button');
@@ -130,8 +158,11 @@ function pickingResultsSection(u, c){
         
         userOptionDiv.insertAdjacentElement('afterend', resultsPaneDiv)
         if (result === 'win'){
-            updateScore('add')
-        }
+            updateScore('add', m, result)
+        } else {
+            console.log('You loseee', m, result)
+            updateScore('add', m, result)
+        } 
     }, 3000);
     
 }
@@ -139,6 +170,7 @@ function pickingResultsSection(u, c){
 
 function resetGame() {
     document.querySelector('.results-section').remove();
+    document.querySelector('#mode-toggle').disabled = false;
 
     const controlDiv = document.createElement('div');
     const paperButton = document.createElement('button');
@@ -227,4 +259,115 @@ document.querySelector('nav.rules>button').addEventListener('click', toggleModal
 function closeModal(e){
     document.querySelector('.page-wrap').remove();
     document.querySelector('.rules3__modal').remove();
+}
+
+
+let initialize = false
+document.querySelector('#mode-toggle').addEventListener('click', (e) => {
+    initialize = true;
+    const scoreHeadDiv = document.querySelector('header>div.head__header .score-head');
+    if(MODE === 'normal'){
+        e.target.textContent = 'HARD'
+        // e.target.style.background = 'white';
+        e.target.style.color = 'hsl(237, 49%, 15%)';
+        e.target.style['background-position']= "100%";
+        MODE = 'hard'
+
+
+        const aiScoreDiv = document.createElement('div');
+        aiScoreDiv.classList = "ai-score";
+        const aiScoreSpan = document.createElement('span');
+        aiScoreSpan.textContent = "THE HOUSE";
+        const aiScoreP = document.createElement('p');
+        aiScoreP.id = "ai-score";
+
+        
+        const yourScoreHeadings4 = scoreHeadDiv.querySelector('.score h4');
+        yourScoreHeadings4.textContent = 'YOUR SCORE'
+
+        aiScoreDiv.append(aiScoreSpan)
+        aiScoreDiv.append(aiScoreP);
+        scoreHeadDiv.append(aiScoreDiv);
+        updateScore(null, MODE)
+
+        // scoreCardUpdate('hard')
+    } else {
+        e.target.textContent = 'NORMAL';
+        // e.target.style.background = 'initial';
+        e.target.style.color = 'white';
+        e.target.style['background-position']= "0%";
+        MODE = 'normal'
+
+        document.querySelector('.ai-score').remove()
+        document.querySelector('.score h4').textContent = 'SCORE'
+
+        updateScore(null, MODE)
+
+       
+    }
+})
+
+
+init();
+
+function updateScore(op, m, r,prev, curr){
+    prev = parseInt(document.querySelector('#score').textContent)
+    if(!op){
+        console.log('triggered no operation')
+        if(m !== "hard"){
+            console.log('triggered no operation normal')
+            prev = window.localStorage.getItem('rps-score');
+            console.log(prev)
+            document.querySelector('#score').textContent = prev ? prev: '0';
+        } else {
+            console.log('triggered no operation hard')
+            prev = window.localStorage.getItem('rps-hard-score');
+            console.log(prev, prev.split(","))
+            let [ yourScore, aiScore ] = prev.split(",")
+            console.log(yourScore, aiScore)
+            console.log(typeof yourScore)
+            document.querySelector('#score').textContent = prev ? yourScore: '0';
+            document.querySelector('#ai-score').textContent = aiScore;
+            console.log(document.querySelector('#ai-score'))
+        }
+        
+    }
+
+    console.log(op, m, r)
+
+    if(op === 'add' && r === "win" && m !== "hard"){
+        console.log('TRIGGERED update score normal mode')
+        document.querySelector('#score').textContent = parseInt(document.querySelector('#score').textContent) + 1;
+        curr = document.querySelector('#score').textContent
+        window.localStorage.setItem('rps-score', curr)
+    }
+    
+    if(op === "add" && r === "win" && m === "hard"){
+        console.log('TRIGGERED update score hard mode')
+        document.querySelector('#score').textContent = parseInt(document.querySelector('#score').textContent) + 1;
+        curr = ['', '']
+        curr[0] = document.querySelector('#score').textContent;
+        curr[1] = document.querySelector('#ai-score').textContent;
+        window.localStorage.setItem('rps-hard-score', curr)
+    }
+
+
+    if(op === "add" && r === "lose" && m === "hard"){
+        console.log('TRIGGERED update score hard mode')
+        document.querySelector('#ai-score').textContent = parseInt(document.querySelector('#ai-score').textContent) + 1;
+        curr = ['', '']
+        curr[0] = document.querySelector('#score').textContent;
+        curr[1] = document.querySelector('#ai-score').textContent;
+        window.localStorage.setItem('rps-hard-score', curr)
+    }
+
+    return { op, prev, curr }
+}
+
+function scoreCardUpdate(m){
+    if (m === 'hard'){
+        document.querySelector('#score').textContent = "0";
+        document.querySelector('#ai-score').textContent = "0";
+    }
+
 }

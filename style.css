@@ -50,6 +50,22 @@ header .head__header img {
   height: 3em;
 }
 
+header .head__header .score-head {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 header .head__header .score {
   width: 5em;
   height: 4.5em;
@@ -66,17 +82,53 @@ header .head__header .score {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 1em;
+  padding: 0.7em;
 }
 
 header .head__header .score h4 {
   color: #2a46c0;
   margin: 0;
   font-weight: 600;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
 }
 
 header .head__header .score p {
+  font-weight: 700;
+  font-size: 2rem;
+  margin: 0;
+  color: rgba(59, 67, 99, 0.85);
+  line-height: 1;
+}
+
+header .head__header .ai-score {
+  margin-left: 0.5em;
+  width: 5em;
+  height: 4.5em;
+  background: white;
+  border: none;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.7em;
+}
+
+header .head__header .ai-score span {
+  color: red;
+  letter-spacing: 0.1rem;
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.6rem;
+}
+
+header .head__header .ai-score p {
   font-weight: 700;
   font-size: 2rem;
   margin: 0;
@@ -111,13 +163,13 @@ main nav.rules {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column wrap;
-          flex-flow: column wrap;
+  -webkit-box-direction: reverse;
+      -ms-flex-flow: column-reverse wrap;
+          flex-flow: column-reverse wrap;
   padding: 0 2em;
 }
 
-main nav.rules button {
+main nav.rules button.nav__rulesbtn {
   width: 8.125rem;
   height: 2.625rem;
   border: 2px solid #fff;
@@ -129,7 +181,29 @@ main nav.rules button {
   padding: 0.25em 1.5625em;
   border-radius: 10px;
   letter-spacing: 0.15em;
-  margin: 0 auto;
+  margin: 0 auto 1em;
+}
+
+main nav.rules button.nav__mode {
+  width: 8.125rem;
+  height: 2.625rem;
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+  font-size: 1em;
+  text-transform: uppercase;
+  font-family: inherit;
+  padding: 0.25em 1em;
+  border-radius: 10px;
+  letter-spacing: 0.15em;
+  margin: 1em auto;
+  text-align: center;
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, transparent), color-stop(50%, white));
+  background-image: linear-gradient(to right, transparent 50%, white 50%);
+  background-size: 200% 100%;
+  line-height: 2em;
+  -webkit-transition: background-position 1s;
+  transition: background-position 1s;
 }
 
 main div.main {
@@ -705,6 +779,21 @@ main div.main section.results-section .computer-option h3 {
     margin: 0.6125em 0.6875em;
     height: 6em;
   }
+  header .head__header .score-head {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
   header .head__header .score {
     width: 9.375em;
     height: 7.125em;
@@ -731,6 +820,39 @@ main div.main section.results-section .computer-option h3 {
     font-size: revert;
   }
   header .head__header .score p {
+    font-weight: 700;
+    font-size: 4rem;
+    margin: 0;
+    color: rgba(59, 67, 99, 0.85);
+    line-height: 1;
+  }
+  header .head__header .ai-score {
+    margin-left: 0.5em;
+    width: 9.375em;
+    height: 7.125em;
+    background: white;
+    border: none;
+    border-radius: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 1em;
+  }
+  header .head__header .ai-score span {
+    color: red;
+    letter-spacing: 0.1rem;
+    margin: 0;
+    font-weight: 600;
+    font-size: revert;
+  }
+  header .head__header .ai-score p {
     font-weight: 700;
     font-size: 4rem;
     margin: 0;
@@ -768,7 +890,7 @@ main div.main section.results-section .computer-option h3 {
     padding: 0 2em;
     margin: unset;
   }
-  main nav.rules button {
+  main nav.rules button.nav__rulesbtn {
     width: 8.125rem;
     height: 2.625rem;
     -ms-flex-item-align: end;
@@ -783,6 +905,29 @@ main div.main section.results-section .computer-option h3 {
     border-radius: 10px;
     letter-spacing: 0.15em;
     margin: unset;
+  }
+  main nav.rules button.nav__mode {
+    width: 8.125rem;
+    height: 2.625rem;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+    font-size: 1em;
+    text-transform: uppercase;
+    font-family: inherit;
+    padding: 0.25em 1em;
+    border-radius: 10px;
+    letter-spacing: 0.15em;
+    margin: 1em 0;
+    text-align: center;
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, transparent), color-stop(50%, white));
+    background-image: linear-gradient(to right, transparent 50%, white 50%);
+    background-size: 200% 100%;
+    line-height: 2em;
+    -webkit-transition: background-position 1s;
+    transition: background-position 1s;
   }
   main div.main {
     display: -webkit-box;
