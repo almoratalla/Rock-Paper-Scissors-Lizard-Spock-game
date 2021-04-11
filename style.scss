@@ -6,6 +6,8 @@ $neutrals-hdroutline: hsl(217, 16%, 45%);
 $scissors-gradient: linear-gradient(hsl(39, 89%, 49%),hsl(40, 84%, 53%));
 $paper-gradient: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
 $rock-gradient: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+$lizard-gradient: linear-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+$spock-gradient: linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
 
 html {
     box-sizing: border-box;
@@ -128,7 +130,7 @@ main {
     width: 19.5625rem;
     margin: 0 auto;
     
-    div.first {
+    nav.first {
         // width: 20.75em;
         width: 13em;
         display: none; 
@@ -571,9 +573,19 @@ main {
             justify-content: space-between;
         
             img {
-                margin: 0.6125em 0.6875em; // or 0.58em top/bottom
+                margin: 0 0.6875em; // or 0.58em top/bottom
+            }
+
+            .logo__rps {
                 height: 6em;
-                
+                margin-top: 0.6125em;
+                margin-bottom: 0.6125em;
+            }
+
+            .logo__rpsls {
+                height: 7.125em;
+                // margin-top: 0.6125em;
+                // margin-bottom: 0.6125em;
             }
 
             .score-head {
@@ -649,16 +661,40 @@ main {
     }
     
     main {
-        padding: 1em 0;
+        padding: unset;
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-between;
         width: unset;
         
-        div.first {
+        nav.first {
             // width: 20.75em;
             width: 13em;
-            display: block;
+            display: flex;
+            flex-flow: column-reverse wrap;
+            padding: 0 2em;
+            margin: 1em 0;
+
+            button.nav__rpsls {
+                // 130x42
+                width: 8.125rem;
+                height: 2.625rem;
+                align-self: flex-start;
+                border: 2px solid #fff;
+                background: transparent;
+                color: #fff;
+                font-size: 1em;
+                text-transform: uppercase;
+                font-family: inherit;
+                padding: 0.25em 1.5625em;
+                border-radius: 10px;
+                letter-spacing: 0.15em;
+                margin: unset;
+                outline: none;
+                background-image: linear-gradient(to right, transparent 50%, white 50%);
+                background-size: 200% 100%;
+                transition: background-position 1s;
+            }
         }
     
         nav.rules {
@@ -667,7 +703,7 @@ main {
             display: flex;
             flex-flow: column-reverse wrap;
             padding: 0 2em;
-            margin: unset;
+            margin: 1em 0;
     
             button.nav__rulesbtn {
                 // 130x42
@@ -715,6 +751,7 @@ main {
             display: flex;
             flex-flow: column nowrap;
             width: 59.125rem;
+            margin: 1em 0;
     
             button {
                 width: 12.5625rem; //201
@@ -752,6 +789,18 @@ main {
                 outline: none;
                 border:none;
                 background: $rock-gradient;
+            }
+
+            .lizard-option {
+                outline: none;
+                border:none;
+                background: $lizard-gradient;
+            }
+
+            .spock-option {
+                outline: none;
+                border:none;
+                background: $spock-gradient;
             }
     
             div.controls {
@@ -1018,15 +1067,107 @@ main {
                 }
                 
             }
+
+            div.controls__rpsls {
+                height: 29.0625em;
+                width: 29.625em; //474
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+
+                img { 
+                    width: auto;
+                    height: 3rem;
+                }
+
+                button img.rock-image {
+                    height: 2.5rem;
+                    width: auto;
+                }
+
+                button {
+                    height: 9.3125rem;
+                    width: 9.1875rem;
+
+                    span {
+                        display: inline-flex;
+                        background-color: #fff;
+                        height: 6.9375rem; // 111
+                        width: 6.9375rem; // 111
+                        border-radius: 50%;
+                        justify-content: center;
+                        align-items: center;
+                        box-shadow: inset 0 0.5rem rgba(0, 0, 0, 0.2);
+                    }
+                }
+
+                .scissors__option__main {
+                    margin: 0 7em;
+                    order: 0;
+                    align-self: flex-start;
+                }   
+
+                .spock__option__main {
+                    margin: 0 6em 1em 0;
+                    order: 1;
+                    align-self: center;
+                    top: -20px;
+                    position: relative;
+                }
+                
+                .paper__option__main {
+                    margin: 0 0 1em auto;
+                    order: 1;
+                    align-self: center;
+                    top: -20px;
+                    position: relative;
+                }
+        
+                .lizard__option__main {
+                    margin: 0 2em;
+                    align-self: flex-end;
+                    order: 2;
+                }   
+    
+                .rock__option__main {
+                    margin: 0 2em;
+                    align-self: flex-end;
+                    order: 2;
+                }
+
+                
+        
+                
+            }
+
+            div.controls__rpsls::after {
+                content: '';
+                position: absolute;
+                background-image: url('./images/bg-pentagon.svg');
+                background-repeat: no-repeat;
+                background-size: 20rem 20rem; //276~304 x 240
+                height: 75%;
+                width: 75%;
+                top: 16%;
+                left: 16%;
+                z-index: -2;
+            }
+            
     
         }  
+
+        div.main__rpsls {
+            margin: 0;
+        }
     }
 
     .page-wrap {
         height: 100%;
         width: 100%;
         background: rgb(0, 0, 0);
-        opacity: 85%;
+        opacity: 60%;
         position: absolute;
         top: 0;
         // filter: blur(10px) grayscale(50%);
