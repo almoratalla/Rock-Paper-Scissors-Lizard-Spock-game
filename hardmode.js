@@ -51,7 +51,7 @@ function trainAIData(userChoice, g){
     if(g === "rps"){
       net.train([rpsPattern], { iterations: 100, log: true })
       const humanWillChose = net.run(rpsPattern)
-      updatePattern(userChoice)
+      updatePattern(userChoice, g)
       const roundedHumanWillChose = Math.round(humanWillChose)
       // if 3>= roundedHuman >= 1 then roundedHuman % 3 + 1 else 1
         // if (1-3) else (0)
@@ -65,7 +65,7 @@ function trainAIData(userChoice, g){
       // 5 loses to 1 or 3
       net.train([rpslsPattern], { iterations: 100, log: true })
       const humanWillChose = net.run(rpslsPattern)
-      updatePattern(userChoice)
+      updatePattern(userChoice, g)
       const roundedHumanWillChose = Math.round(humanWillChose)
       let chosenByAI = 1 <= roundedHumanWillChose && roundedHumanWillChose <= 5 ? (roundedHumanWillChose % 5) + 1 : 1;
       resolve(chosenByAI);
