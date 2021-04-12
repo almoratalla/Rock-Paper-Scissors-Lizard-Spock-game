@@ -76,7 +76,7 @@ header {
             display: flex;
             flex-flow: column nowrap;
             align-items: center;
-            padding: 0.7em;
+            padding: 0.7em 0.1em;
 
             h4 {
                 color:$neutrals-scrtext;
@@ -109,7 +109,7 @@ header {
             flex-flow: column nowrap;
             // justify-content: space-between;
             align-items: center;
-            padding: 0.7em;
+            padding: 0.7em 0.1em;
     
             span {
                 color: red;
