@@ -722,6 +722,31 @@ main div.main section.results-section .computer-option h3 {
   margin: 1.625em auto;
 }
 
+main div.main section.results-section .win-option span::before {
+  content: '';
+  width: 10.5rem;
+  height: 10.375rem;
+  border-radius: 50%;
+  position: absolute;
+  opacity: 70%;
+  z-index: -5;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+main div.main section.results-section .win-option span::after {
+  display: block;
+  content: '';
+  width: 12.875rem;
+  height: 12.75rem;
+  border-radius: 50%;
+  position: absolute;
+  opacity: 60%;
+  z-index: -6;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-box-shadow: 0 0 0 1rem rgba(47, 55, 86, 0.678);
+          box-shadow: 0 0 0 1rem rgba(47, 55, 86, 0.678);
+}
+
 main div.main div.controls__rpsls {
   width: inherit;
   height: 19.125em;
@@ -1164,6 +1189,7 @@ main div.main__rpsls {
     border-radius: 50%;
     -webkit-box-shadow: inset 0 -0.5rem rgba(0, 0, 0, 0.2);
             box-shadow: inset 0 -0.5rem rgba(0, 0, 0, 0.2);
+    position: relative;
   }
   main div.main button span {
     display: -webkit-inline-box;
@@ -1564,6 +1590,7 @@ main div.main__rpsls {
         -ms-flex-align: center;
             align-items: center;
     height: 24.1875em;
+    letter-spacing: 0.3rem;
   }
   main div.main section.results-section .user-option h3 {
     margin: 0 auto;
@@ -1583,9 +1610,33 @@ main div.main__rpsls {
         -ms-flex-align: center;
             align-items: center;
     height: 24.1875em;
+    letter-spacing: 0.3rem;
   }
   main div.main section.results-section .computer-option h3 {
     margin: 0 auto;
+  }
+  main div.main section.results-section .win-option span::before {
+    content: '';
+    width: 26.3125rem;
+    height: 26.0625rem;
+    border-radius: 50%;
+    position: absolute;
+    opacity: 70%;
+    z-index: -5;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  main div.main section.results-section .win-option span::after {
+    display: block;
+    content: '';
+    width: 35.3125rem;
+    height: 34.9375rem;
+    border-radius: 50%;
+    position: absolute;
+    opacity: 60%;
+    z-index: -6;
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-box-shadow: 0 0 0 4rem rgba(47, 55, 86, 0.678);
+            box-shadow: 0 0 0 4rem rgba(47, 55, 86, 0.678);
   }
   main div.main div.controls__rpsls {
     height: 29.0625em;

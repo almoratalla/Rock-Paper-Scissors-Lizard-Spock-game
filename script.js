@@ -22,6 +22,7 @@ async function startGame(g, e) {
     let m = MODE;
 
     document.querySelector('#mode-toggle').disabled = true;
+    document.querySelector('#game-toggle').disabled = true;
 
     // Store the user choice in a variable
     const [ userOption ] = e.target.dataset.option.toString().split("-");
@@ -136,6 +137,7 @@ function pickingResultsSection(u, c, m, g){
     computerOptionButton.prepend(computerOptionSpan);
     computerOptionSpan.prepend(computerOptionImage);
 
+    
     // display option picked by the computer after 1s
     setTimeout(() => {
         computerOptionButton.classList.toggle("picking")
@@ -215,10 +217,14 @@ function pickingResultsSection(u, c, m, g){
         
         userOptionDiv.insertAdjacentElement('afterend', resultsPaneDiv)
         if (result === 'win'){
+            userOptionButton.classList.add("win-option")
+            updateScore('add', m, g, result)
+        } else if (result === "lose"){
+            computerOptionButton.classList.add("win-option")
             updateScore('add', m, g, result)
         } else {
             updateScore('add', m, g, result)
-        } 
+        }
     }, 3000);
     
 }
@@ -228,6 +234,7 @@ function resetGame(g) {
     // console.log('%c [RESET GAME] - Remove result section, render controls, initialize again', "color: blue; background-color: green; padding: 1em;")
     document.querySelector('.results-section').remove();
     document.querySelector('#mode-toggle').disabled = false;
+    document.querySelector('#game-toggle').disabled = false;
     const controlDiv = document.createElement('div');
     let ctrlList;
 
@@ -368,10 +375,22 @@ function updateScore(op, m, g, r, prev, curr){
         document.querySelector('#score').textContent = parseInt(document.querySelector('#score').textContent) + 1;
         curr = document.querySelector('#score').textContent
         window.localStorage.setItem('rps-score', curr)
+    } else if (op === 'add' && r === "lose" && m !== "hard" && g === "rps") {
+        if(parseInt(document.querySelector('#score').textContent) != 0 && parseInt(document.querySelector('#score').textContent) > 0){
+            document.querySelector('#score').textContent = parseInt(document.querySelector('#score').textContent) - 1;
+        }
+        curr = document.querySelector('#score').textContent
+        window.localStorage.setItem('rps-score', curr)
     }
 
     if(op === 'add' && r === "win" && m !== "hard" && g === "rpsls"){
         document.querySelector('#score').textContent = parseInt(document.querySelector('#score').textContent) + 1;
+        curr = document.querySelector('#score').textContent
+        window.localStorage.setItem('rpsls-score', curr)
+    } else if (op === 'add' && r === "lose" && m !== "hard" && g === "rpsls") {
+        if(parseInt(document.querySelector('#score').textContent) != 0 && parseInt(document.querySelector('#score').textContent) > 0){
+            document.querySelector('#score').textContent = parseInt(document.querySelector('#score').textContent) - 1;
+        }
         curr = document.querySelector('#score').textContent
         window.localStorage.setItem('rpsls-score', curr)
     }
@@ -390,6 +409,9 @@ function updateScore(op, m, g, r, prev, curr){
 
     if(op === "add" && r === "lose" && m === "hard" && g === "rps"){
         document.querySelector('#ai-score').textContent = parseInt(document.querySelector('#ai-score').textContent) + 1;
+        if(parseInt(document.querySelector('#score').textContent) != 0 && parseInt(document.querySelector('#score').textContent) > 0){
+            document.querySelector('#score').textContent = parseInt(document.querySelector('#score').textContent) - 1;
+        }
         curr = ['', '']
         curr[0] = document.querySelector('#score').textContent;
         curr[1] = document.querySelector('#ai-score').textContent;
@@ -407,6 +429,9 @@ function updateScore(op, m, g, r, prev, curr){
 
     if(op === "add" && r === "lose" && m === "hard" && g === "rpsls"){
         document.querySelector('#ai-score').textContent = parseInt(document.querySelector('#ai-score').textContent) + 1;
+        if(parseInt(document.querySelector('#score').textContent) != 0 && parseInt(document.querySelector('#score').textContent) > 0){
+            document.querySelector('#score').textContent = parseInt(document.querySelector('#score').textContent) - 1;
+        }
         curr = ['', '']
         curr[0] = document.querySelector('#score').textContent;
         curr[1] = document.querySelector('#ai-score').textContent;
