@@ -424,7 +424,6 @@ document.querySelector('#game-toggle').addEventListener('click', (e) => {
     let logo = header.querySelector('img');
     const main = document.querySelector('main>div.main');
     const controls = main.querySelector('div.controls')
-
     if(GAME === 'rps'){
         // Change to rpsls
         logo.class = "logo__rpsls";
