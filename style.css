@@ -175,7 +175,7 @@ main nav.first {
   padding: 0 2em;
 }
 
-main nav.first button.nav__rpsls {
+main nav.first button.nav__rps {
   width: 8.125rem;
   height: 2.625rem;
   -ms-flex-item-align: start;
