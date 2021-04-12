@@ -29,36 +29,28 @@ async function startGame(g, e) {
     USER_OPTION = userOption;
 
     // List computer options
-    const opts = g === 'rps'? ['paper', 'scissors', 'rock'] : ['scissors', 'spock', 'paper', 'lizard', 'rock'];
-    let uOption;
+    const opts = g === 'rps'? ['paper', 'scissors', 'rock'] : ['rock', 'paper', 'scissors', 'spock', 'lizard'];
+    let uOption, computerOption, max, min;
+    max = g === "rps" ? 2 : 4;
+    min = 0;
     
     // Normalize data to pass to ai hard mode
-    if(g === "rps"){
-        // Normalize rps:[1,2,3]
-        if (userOption == 'rock') {
-            uOption = 1;
-        } else if (userOption == 'paper'){
-            uOption = 2;
-        } else {
-            uOption = 3;
-        }
-    } else {
-        // To be replaced with corresponding values for rpsls ai hard mode
+    // Normalize rps:[1,2,3]
+    if (userOption == 'rock') {
         uOption = 1;
+    } else if (userOption == 'paper'){
+        uOption = 2;
+    } else if (userOption == 'scissors'){
+        uOption = 3;
+    } else if (userOption == 'spock'){
+        uOption = 4;
+    } else if (userOption == 'lizard'){
+        uOption = 5;
+    } else {
+        uOption = opts[Math.floor(Math.random() * (max - min + 1) + min)];
     }
-    /// Develop hard mode for rpsls to be passed as computer option
-    // no logic yet in hard mode for rpsls
-    // if(g === "rpsls"){
-    //     if (userOption == 'rock') {
-    //         uOption = 1;
-    //     } else if (userOption == 'paper'){
-    //         uOption = 2;
-    //     } else {
-    //         uOption = 3;
-    //     }
-    // }
     
-    let computerOption, max, min;
+    
     // Computer choose an action
     if(m === 'normal' && g === "rps"){
         // If normal mode, just random answer
@@ -70,13 +62,20 @@ async function startGame(g, e) {
     } else {
         // hard mode
     
-        const cOption = await aiAnswer(uOption);
+        const cOption = await aiAnswer(uOption, g);
+        console.log(cOption)
         if (cOption == 1) {
             computerOption = 'rock';
         } else if (cOption == 2){
             computerOption = 'paper';
-        } else {
+        } else if (cOption == 3){
             computerOption = 'scissors';
+        } else if (cOption == 4){
+            computerOption = 'spock';
+        } else if (cOption == 5){
+            computerOption = 'lizard';
+        } else {
+            computerOption = opts[Math.floor(Math.random() * (max - min + 1) + min)];
         }
             
     }
