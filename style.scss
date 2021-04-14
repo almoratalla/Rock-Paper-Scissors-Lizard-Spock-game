@@ -28,6 +28,10 @@ body {
     background: radial-gradient($bg-fromblue, $bg-toblue);
 }
 
+.attribution { font-size: 1rem; text-align: center; position: absolute; bottom: 1em; margin: 0 auto; left: 0; right:0; }
+.attribution a { color: hsl(228, 45%, 44%); }
+.attribution a { color: white; }
+
 header {
     display: flex;
 
@@ -298,6 +302,10 @@ main {
                 height: 2.2rem;
                 width: auto;
             }
+
+            button:active {
+                transform: translateY(1rem);
+            }
     
             .paper__option__main {
                 margin: 0 auto auto 0;
@@ -450,6 +458,14 @@ main {
                     font-weight: 600;
                     letter-spacing: 0.2em;
                     
+                }
+
+                button:hover {
+                    transform: scale(1.2);
+                }
+
+                button:active {
+                    transform: translateY(2px);
                 }
 
             }
@@ -944,7 +960,7 @@ main {
                 }
     
             }
-    
+
             .paper-option {
                 outline: none;
                 border:none;

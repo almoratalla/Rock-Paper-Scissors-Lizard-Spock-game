@@ -18,6 +18,24 @@ body {
   background: radial-gradient(#1f3756, #141539);
 }
 
+.attribution {
+  font-size: 1rem;
+  text-align: center;
+  position: absolute;
+  bottom: 1em;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+}
+
+.attribution a {
+  color: #3e52a3;
+}
+
+.attribution a {
+  color: white;
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -354,6 +372,11 @@ main div.main div.controls button img.rock-image {
   width: auto;
 }
 
+main div.main div.controls button:active {
+  -webkit-transform: translateY(1rem);
+          transform: translateY(1rem);
+}
+
 main div.main div.controls .paper__option__main {
   margin: 0 auto auto 0;
 }
@@ -554,6 +577,16 @@ main div.main section.results-section .results-pane button {
   border: none;
   font-weight: 600;
   letter-spacing: 0.2em;
+}
+
+main div.main section.results-section .results-pane button:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+main div.main section.results-section .results-pane button:active {
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
 }
 
 @-webkit-keyframes bounce-1 {
