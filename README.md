@@ -1,119 +1,156 @@
-# Frontend Mentor - Rock, Paper, Scissors
+# Frontend Mentor - Rock, Paper, Scissors solution
 
 ![Design preview for the Rock, Paper, Scissors coding challenge](./design/desktop-preview.jpg)
 
-## Welcome! 👋
+This is a solution to the [Rock, Paper, Scissors challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-Thanks for checking out this front-end coding challenge.
+---
+## Table of contents
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+- [Frontend Mentor - Rock, Paper, Scissors solution](#frontend-mentor---rock-paper-scissors-solution)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+    - [The challenge](#the-challenge)
+    - [Screenshot](#screenshot)
+    - [Links](#links)
+  - [My process](#my-process)
+    - [Built with](#built-with)
+    - [What I learned](#what-i-learned)
+    - [Continued development](#continued-development)
+    - [Useful resources](#useful-resources)
+  - [Author](#author)
+  - [Acknowledgments](#acknowledgments)
 
-**To do this challenge, you need a basic understanding of HTML, CSS and JavaScript.**
+---
 
-## The challenge
+## Overview
+Greetings Everyone! This project is made for the purpose of practicing and improving my CSS skills. 
+This challenge is setup by [`Frontend Mentor`](https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH). To know more about this challenge, read the *challenge.md*.
 
-Your challenge is to build out this Rock, Paper, Scissors game and get it looking as close to the design as possible.
+### The challenge
 
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-Your users should be able to:
+Users should be able to:
 
 - View the optimal layout for the game depending on their device's screen size
 - Play Rock, Paper, Scissors against the computer
 - Maintain the state of the score after refreshing the browser _(optional)_
 - **Bonus**: Play Rock, Paper, Scissors, Lizard, Spock against the computer _(optional)_
 
-### Rules
+**`Difficulty:`**` Advanced`
 
-If the player wins, they gain 1 point. If the computer wins, the player loses one point.
+### Screenshot
 
-#### Original
+![](./screenshot.jpg)
 
-- Paper beats Rock
-- Rock beats Scissors
-- Scissors beats Paper
+Screen: `1366x768 desktop`
+![1366x768 desktop screenshot](./screens/screenshot-desktop-1366x768.png)
 
-#### Bonus
+Screen: `1920x966 desktop`
+![1920x966 desktop screenshot](./screens/screenshot-desktop-1920x966.png)
 
-- Scissors beats Paper
-- Paper beats Rock
-- Rock beats Lizard
-- Lizard beats Spock
-- Spock beats Scissors
-- Scissors beats Lizard
-- Paper beats Spock
-- Rock beats Scissors
-- Lizard beats Paper
-- Spock beats Rock
+Screen: `375x750 mobile`
+![375x1502 mobile screenshot](./screens/screenshot-mobile-375x750.png)
 
-Not sure what Rock, Paper, Scissors, Lizard, Spock is? [Check out this clip from The Big Bang Theory](https://www.youtube.com/watch?v=iSHPVCBsnLw).
+Screen: `1366x768 desktop bonus`
+![1366x768 desktop screenshot](./screens/screenshot-desktop-bonus-1366x768.png)
 
-Want some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the **#help** channel.
+Screen: `1920x966 desktop bonus`
+![1920x966 desktop screenshot](./screens/screenshot-desktop-bonus-1920x966.png)
 
-## Where to find everything
+Screen: `375x750 mobile bonus`
+![375x1502 mobile screenshot](./screens/screenshot-mobile-bonus-375x750.png)
 
-Your task is to build out the project to the designs inside the `/design` folder. You can either choose the `original` designs for the simpler version or the `bonus` designs for the harder version. You will find both mobile and desktop versions of the design to work to. Each file is also named depending on which step in the game the design is for.
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+### Links
 
-If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+- Solution URL: [Github repo url](https://github.com/almoratalla/Rock-Paper-Scissors-Lizard-Spock-game)
+- Live Site URL: [My github page](https://almoratalla.github.io/projects/learning/rock-paper-scissors-lizard-spock-game/)
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
+## My process
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+### Built with
 
-## Building your project
+- Semantic HTML5 markup
+- SCSS
+- Vanilla JavaScript
+- Flexbox
+- Mobile-first workflow
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+### What I learned
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+My major takeaway from this is the problems arising in responsiveness especially when I follow the dimensions of the elements taken from the provided design images. In reference to the style guide, I laid out the designs in 1366 and 375 widths for desktop and mobile respectively while following the design image's corresponding height. When I follow the dimensions strictly for the elements and the amount of spacing per element, responsiveness becomes a challenge. A temporary solution would be to create separate queries for each screens which will fill the gap on these strict dimensions but I think there can be a better approach to this.
 
-## Deploying your project
+The design choice for the html markup would be to try it as semantic as possible. I separated the scoreboard as the `header` element accompanied with a `main` element which will serve as the main play board. On the `main` element, I subdivided it into 3 parts; a `nav` to change the game state, the controls section which is a `div` and an another separate `nav` for the rules and game mode buttons. Whenever the player chooses an option, the controls `div` would be rerendered into `sections`; one for the picking state and another for the results state. 
 
-As mentioned above, there are many ways to host your project for free. Our recommend hosts are:
+For styling, I used a boilerplate this boilerplate to reset the html. 
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+Starting with a mobile-first approach: 
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+```css
+html {
+    box-sizing: border-box;
+    font-size: 100%;
+}
 
-## Create a custom `README.md`
+*, *::before, *::after{
+    box-sizing: inherit;
+}
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+body {
+    margin: 0;
+    padding: 0;
+    max-height: 100%;
+}
+```
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+Then started my way down adding styles starting from the header. I learned from this project that the `header` element tag normally does occupy the top most position of the body and adding a margin to it will cause extra space on top that does not cover the body so I added a margin to it's child instead to make the proper scoreboard.
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+Since the given designs in the style-guide were created to `375px` and `1366px` for Mobile and Desktop respectively, I added these:
 
-## Submitting your solution
+*@For screens* ~ laptop/desktop `1366 x 768`, `1280 x 720` or `1300 x 800` // @For screens , 990px and up
+*body above* **`1232px width`** *but not more than* **1200px width and 800px height**
+```css
+@media only screen and (min-width: 992px) and (max-height: 50em){
+...
+}
+```
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
+*@For screens* `1920 x 1080` 
+*body* `1920px X 1076px/937px` *or* `120rem x 67.25rem/58.6rem`
+```css
+@media screen and (min-width: 75em) and (min-height: 50em){
+...
+}
+```
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
 
-## Sharing your solution
+For the script in rendering the DOM, I initially chose to use React but instead used Vanilla JavaScript in rendering the page since it will only take small amount of logic for this mini project. One key takeaway from here is I rerender every DOM element that needs to be updated and removes elements that are needed on the screen dynamically.
 
-There are multiple places you can share your solution:
+Also, I added optional features in this project such as the `rock-paper-scissors-lizard-spock` game as a bonus and a `hard-mode` that uses [Brain.js](https://brain.js.org/#/) to simulate an AI that will detect the user's pattern in order to win. This is also inspired by an example provided on brain.js page. (Link provided in useful resources)
 
-1. Share your solution page in the **#finished-projects** channel of the [Slack community](https://www.frontendmentor.io/slack). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
+Lastly, for sizes relative to the original design, I estimated the sizes by pasting the `jpg` file into AdobeXD and eyeballed its dimensions. 
 
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
+### Continued development
 
-## Got feedback for us?
+Continued development for this is to improve responsiveness, be it on media queries or relative dimensions on some elements. Also it would be fun to add other features on this such as adding voice/image recognition when you play the game or maybe even improving the AI. 
 
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
+### Useful resources
 
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
+- [Frontendmentor.io](https://www.frontendmentor.io/resources) - Frontendmentor itself has a list of great resources!.
+- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) - Great reference for syntax and properties.
+- [CSS Tricks!](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) - Something I go back to as a reference for flexbox.
+- [Google Everything](https://www.google.com/) - You don't know something? Google it! Or any search engine that you prefer. I just mainly use it to go to Stack Overflow lol
+- [Stack Overflow](https://stackoverflow.com/) - the ever loving and benevolent!
+- [Brain.js](https://brain.js.org/#/examples) - simple neural network library for browser. I love this
+- [The rock paper scissors with AI sample](https://github.com/arifikhsan/batu-gunting-kertas-nuxt) - I used this as an inspiration in writing the hard mode.
 
-**Have fun building!** 🚀
+## Author
+
+- Website - [Alain Moratalla](https://github.com/almoratalla)
+- Frontend Mentor - [@almoratalla](https://www.frontendmentor.io/profile/almoratalla)
+- Twitter - [@almoratalla](https://twitter.com/almoratalla)
+
+## Acknowledgments
+
+I tip all the hats in the world for FrontEnd Mentor for giving these challenges. Also, I would like to thank the people I shared this game demo, they are who really made this better.
