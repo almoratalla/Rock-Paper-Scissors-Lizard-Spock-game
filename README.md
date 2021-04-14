@@ -49,7 +49,7 @@ Screen: `1920x966 desktop`
 ![1920x966 desktop screenshot](./screens/screenshot-desktop-1920x966.png)
 
 Screen: `375x750 mobile`
-![375x1502 mobile screenshot](./screens/screenshot-mobile-375x750.png)
+![375x750 mobile screenshot](./screens/screenshot-mobile-375x750.png)
 
 Screen: `1366x768 desktop bonus`
 ![1366x768 desktop screenshot](./screens/screenshot-desktop-bonus-1366x768.png)
@@ -58,7 +58,7 @@ Screen: `1920x966 desktop bonus`
 ![1920x966 desktop screenshot](./screens/screenshot-desktop-bonus-1920x966.png)
 
 Screen: `375x750 mobile bonus`
-![375x1502 mobile screenshot](./screens/screenshot-mobile-bonus-375x750.png)
+![375x750 mobile screenshot](./screens/screenshot-mobile-bonus-375x750.png)
 
 
 ### Links
