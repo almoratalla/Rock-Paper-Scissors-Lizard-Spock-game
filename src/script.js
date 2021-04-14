@@ -448,7 +448,7 @@ const brainTrain = (userChoice, g) => {
 				: min;
 		if (g === "rpsls") {
 			chosenByAI =
-				userChoice == chosenByAI + 1 ? userChoice + 1 : chosenByAI;
+				userChoice == chosenByAI + 1 ? userChoice + 1  > 5 ? 1 : userChoice + 1 : chosenByAI;
 		}
 		updatePattern(userChoice, g);
 		resolve(chosenByAI);
